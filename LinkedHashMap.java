@@ -33,6 +33,17 @@ public class LinkedHashMap<K,V> {
 			mapNode.setValue(value);
 	}	
 	
+	public void remove(K key){
+		int index = this.getBucketIndex(key);
+		LinkedList<K> linkedList = this.bucketArray.get(index);
+
+		if(linkedList == null) {
+			System.out.println("\nNo entries!");
+		}
+		
+		linkedList.pop(key);
+	}
+	
 	public V get(K key) {
 		int index = this.getBucketIndex(key);
 		LinkedList<K> linkedList = this.bucketArray.get(index);
